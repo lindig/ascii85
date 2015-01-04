@@ -1,4 +1,5 @@
 
+ascii85.docdir
 _build
 *.1
 *.native

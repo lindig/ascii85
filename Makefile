@@ -10,10 +10,16 @@ P2M_OPTS =	-s 1 -r "Alpha" -c "opam.ocaml.org"
 
 OCB =		ocamlbuild
 
-all:		main.native ascii85enc.1
+all:		main.native lib doc
 
 main.native:	FORCE
 		$(OCB) $@
+
+lib:		FORCE
+		$(OCB) ascii85.cma ascii85.cmxa
+
+doc:		ascii85enc.1
+		$(OCB) ascii85.docdir/index.html
 
 clean:		FORCE
 		$(OCB) -clean
