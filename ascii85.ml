@@ -131,9 +131,11 @@ let emit85 = function
     | Last(3,word)		    -> emit_word word 5 1
     | Last(_,word)		    -> assert false
 
-(** [encode85 io] reads the file [io] in 4-byte words and emits it. This
-    function doesn't open or close the file. *)
-let encode85 io =
+(** [encode85 head io] reads the file [io] in 4-byte words and emits it. 
+    The string [head] is emitted ahead of the encoded contents of [io].
+    This function doesn't open or close the file. *)
+
+let encode85 head io =
     let rec loop = function
 	| Last(0,word)		-> return ()
 	| Last(n,word) as x	-> emit85 x
@@ -141,18 +143,20 @@ let encode85 io =
                         -> read_word io >>= fun w
                         -> loop w
     in                     
-        emit_str "<~" >>= fun () ->
+        emit_str head >>= fun () ->
         read_word io  >>= fun w  -> loop w >>= fun () ->
         emit_str "~>\n"
 
-(** [encode ic oc] encodes input file [ic] to output file [oc]. *)
-let encode ic oc = encode85 ic (0, oc) |> ignore
+(** [encode head ic oc] encodes input file [ic] to output file [oc]. 
+    String [head] is emitted first.  *)
+let encode head ic oc = encode85 head ic (0, oc) |> ignore
 
 (** [encode_file] reads bytes from a named file and emits them in the
-    Ascii85 encoding to stdout.  [encode_file] opens and closes the named
-    file.  *)
-let encode_file path =
+    Ascii85 encoding to stdout. The output is prepended with [head].
+    [encode_file] opens and closes the named file.  *)
+
+let encode_file head path =
     let ic = open_in path in
-        try_finalize (encode ic) stdout close_in ic
+        try_finalize (encode head ic) stdout close_in ic
 
 

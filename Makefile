@@ -6,9 +6,16 @@ PREFIX =	$(HOME)
 BINDIR =	$(PREFIX)/bin
 MANDIR =	$(PREFIX)/man/man1
 
+LIBFILES =
+LIBFILES +=	ascii85.cma ascii85.cmxa ascii85.cmxs
+LIBFILES +=	ascii85.mli ascii85.cmi
+
 P2M_OPTS =	-s 1 -r "Alpha" -c "opam.ocaml.org"
 
-OCB =		ocamlbuild
+OCB_OPTS =
+OCB_OPTS +=	-use-ocamlfind
+
+OCB =		ocamlbuild $(OCB_OPTS)
 
 all:		main.native lib doc
 
@@ -16,7 +23,7 @@ main.native:	FORCE
 		$(OCB) $@
 
 lib:		FORCE
-		$(OCB) ascii85.cma ascii85.cmxa
+		$(OCB) $(LIBFILES)
 
 doc:		ascii85enc.1
 		$(OCB) ascii85.docdir/index.html
@@ -26,11 +33,12 @@ clean:		FORCE
 		rm -f ascii85enc.1
 		rm -f url descr
 
-install:	ascii85enc.1 main.native
+install:	ascii85enc.1 main.native lib
 		install -d $(BINDIR)
 		install -d $(MANDIR)
 		install main.native $(BINDIR)/ascii85enc
 		install ascii85enc.1 $(MANDIR)
+
 
 remove:		FORCE
 		rm -f $(BINDIR)/ascii85enc

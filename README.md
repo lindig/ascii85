@@ -9,11 +9,23 @@ sections _ASCII Base-85 Strings_ and _ASCII85Encode Filter_.
      
 # Building
 
-Ascii85 is implemented in  OCaml. It does not rely on libraries outside
-of the standard library and was developed with OCaml 4.02.1.
+Ascii85 is implemented in OCaml. It does not rely on libraries outside
+of the standard library and was developed with OCaml 4.02.1. The default
+for the `PREFIX` is `$HOME`.
 
     make
     make PREFIX=/usr/local install
+
+# Command line tool
+
+The command line tool `ascii85enc` is installed into `$PREFIX/bin`. It
+encodes a named file or stdin:
+
+    ascii85enc file.txt
+
+# Using as a library    
+
+
 
 # Documentation
 

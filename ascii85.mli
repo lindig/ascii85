@@ -9,10 +9,10 @@
     All rights reserved. See LICENSE.md.
 *)
 
-val encode: in_channel -> out_channel -> unit
-(** [encode ic oc] reads a byte stream from [ic] until the end and emits
-    its Ascii85 encoding to [oc]. *)
+val encode: string -> in_channel -> out_channel -> unit
+(** [encode head ic oc] writes [head] to [oc] and then reads a byte stream
+    from [ic] until the end and emits its Ascii85 encoding to [oc]. *)
 
-val encode_file: string -> unit
-(** [encode_file path] reads a named file [path] and emits its Ascii85
-    encoding to standard output.  *)
+val encode_file: string -> string -> unit
+(** [encode_file head path] emits [head] and then reads a named file [path]
+    and emits its Ascii85 encoding to standard output.  *)
