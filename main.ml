@@ -31,6 +31,11 @@ let ps = "currentfile /ASCII85Decode filter cvx exec "
     PostScript program in Ascii85 encoding that immediately 
     follows. *)
 
+let default = "<~"
+
+let usage this =
+    Printf.eprintf "usage: %s [-ps|-p prefix] [file]\n" this
+
 (** Some code for testing and a [main] function that handles command line
     arguments *)
 
@@ -40,11 +45,18 @@ let main () =
     let args        = List.tl argv in    
         match args with
         | ["-test"]     -> test ()
-        | ["-ps";path]  -> Ascii85.encode_file ps path 
-        | ["-ps"]       -> Ascii85.encode ps stdin stdout
-        | [path]        -> Ascii85.encode_file "" path 
-        | []            -> Ascii85.encode "" stdin stdout
-        | _	            -> Printf.eprintf "usage: %s [-ps] [file]\n" this; 
-                           exit 1 
+
+        | ["-ps";path]          -> Ascii85.encode_file ps path 
+        | ["-ps"]               -> Ascii85.encode ps stdin stdout
+        
+        | ["-p";prefix;path]    -> Ascii85.encode_file  prefix path 
+        | ["-p";prefix]         -> Ascii85.encode prefix stdin stdout
+
+        | ["-h"]                -> usage this; exit 0
+
+        | [path]                -> Ascii85.encode_file default path 
+        | []                    -> Ascii85.encode default stdin stdout
+
+        | _	                    -> usage this; exit 1 
 
 let () = if not !Sys.interactive then begin main (); exit 0 end

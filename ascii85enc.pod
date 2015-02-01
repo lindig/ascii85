@@ -11,12 +11,33 @@ ascii85enc - encode file in ASCII85 encoding
 
 =head1 SYNOPSIS
 
-B<ascii85enc> [I<file>]
+B<ascii85enc> [-ps | -p I<prefix>] [I<file>]
 
 =head1 DESCRIPTION
 
 B<ascii85enc> reads I<file>, if provided or standard input otherwise, and
-emits its Ascii85 encoding to standard output.
+emits its Ascii85 encoding to standard output. The output is by default
+prefixed with C<< <~ >>.
+
+=head1 OPTIONS
+
+=over 4
+
+=item -p I<prefix>
+
+Use I<prefix> instead of the default as a prefix.
+
+=item -ps
+
+Use as a prefix the following PostScript operators:
+
+    currentfile /ASCII85Decode filter cvx exec
+
+The sequence instructs a PostScript interpreter to decode the following 
+stream and to execute it. This assumes that the decode stream contains
+PostScript code.
+
+=back
 
 =head1 EXIT CODE AND DIAGNOSTICS
 
