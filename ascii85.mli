@@ -15,4 +15,5 @@ val encode: string -> in_channel -> out_channel -> unit
 
 val encode_file: string -> string -> unit
 (** [encode_file head path] emits [head] and then reads a named file [path]
-    and emits its Ascii85 encoding to standard output.  *)
+    and emits its Ascii85 encoding to standard output.  Opening and closing
+    file [path] is handled by [encode_file]. *)

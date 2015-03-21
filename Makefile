@@ -1,10 +1,15 @@
 #
+# Makfile for ascii85 binary and library
 #
+
+# You can override the PREFIX from the command line:
 #
+# make PREFIX=/usr/local
 
 PREFIX =	$(HOME)
 BINDIR =	$(PREFIX)/bin
 MANDIR =	$(PREFIX)/man/man1
+LIBDIR =	$(PREFIX)/lib/ago
 
 LIBFILES =
 LIBFILES +=	ascii85.cma ascii85.cmxa ascii85.cmxs
@@ -36,13 +41,15 @@ clean:		FORCE
 install:	ascii85enc.1 main.native lib
 		install -d $(BINDIR)
 		install -d $(MANDIR)
+		install -d $(LIBDIR)
 		install main.native $(BINDIR)/ascii85enc
 		install ascii85enc.1 $(MANDIR)
-
+		for f in $(LIBFILES); do install _build/$$f $(LIBDIR); done
 
 remove:		FORCE
-		rm -f $(BINDIR)/ascii85enc
-		rm -f $(MANDIR)/ascii85enc.1
+		rm -f  $(BINDIR)/ascii85enc
+		rm -f  $(MANDIR)/ascii85enc.1
+		rm -rf $(LIBDIR)
 
 ascii85enc.1:	ascii85enc.pod Makefile
 		pod2man $(P2M_OPTS) $< > $@

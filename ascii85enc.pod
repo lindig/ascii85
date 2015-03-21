@@ -15,9 +15,10 @@ B<ascii85enc> [-ps | -p I<prefix>] [I<file>]
 
 =head1 DESCRIPTION
 
-B<ascii85enc> reads I<file>, if provided or standard input otherwise, and
-emits its Ascii85 encoding to standard output. The output is by default
-prefixed with C<< <~ >>.
+B<ascii85enc> reads input from I<file> or from standard input (if no
+I<file> given) and emits its Ascii85 encoding to standard output. The
+output is by default prefixed with C<< <~ >>. (The end of the encoding is
+signaled by C<< ~> >>, as it is demanded by the standard.)
 
 =head1 OPTIONS
 
@@ -25,7 +26,7 @@ prefixed with C<< <~ >>.
 
 =item -p I<prefix>
 
-Use I<prefix> instead of the default as a prefix.
+Use I<prefix> instead of the default C<< <~ >> as a prefix.
 
 =item -ps
 
@@ -33,8 +34,8 @@ Use as a prefix the following PostScript operators:
 
     currentfile /ASCII85Decode filter cvx exec
 
-The sequence instructs a PostScript interpreter to decode the following 
-stream and to execute it. This assumes that the decode stream contains
+This sequence instructs a PostScript interpreter to decode the following 
+stream and to execute it. This assumes that the decoded stream contains
 PostScript code.
 
 =back
@@ -57,6 +58,5 @@ available from L<http://github.com/lindig/ascii85>.
 
 =head1 LICENSE
 
-This program is licensed under the BSD-2 Open Source
-License.
+This program is licensed under the BSD-2 Open Source License.
 
