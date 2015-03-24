@@ -1,5 +1,5 @@
 #
-# Makfile for ascii85 binary and library
+# Makfile for ascii85 encoder binary and library
 #
 
 # You can override the PREFIX from the command line:
