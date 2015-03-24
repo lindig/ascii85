@@ -63,6 +63,9 @@ GITHUB =	https://github.com/lindig/$(NAME)
 ZIP =		$(GITHUB)/archive/$(TAG).zip
 OPAM =		$(HOME)/Development/opam-repository/packages/$(NAME)/$(NAME).$(VERSION)
 
+tag:
+		git tag $(TAG)
+
 descr:		README.md
 		sed -n '/^# Opam/,$$ { /^#/n; p;}' $< >$@
 
