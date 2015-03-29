@@ -6,7 +6,7 @@ the Ascii85 encoding as specified by Adobe's _PostScript LANGUAGE REFERENCE
 third edition_. In addition, it comes with a small command line utility to
 encode files from the command line.  For the details of the format, see
 sections _ASCII Base-85 Strings_ and _ASCII85Encode Filter_ in the
-PostScropt manual.    
+PostScript manual.    
      
 # Building
 
@@ -42,7 +42,8 @@ For using the module, all you need are the two source files:
 # Documentation
 
 The ascii85enc utility comes with a Unix manual part which is installed by
-the install target. It is built from L<ascii85enc.pod> in the repository.
+the install target. It is built from [ascii85enc.pod](ascii85enc.pod) in
+the repository.
 
 The interface of Ascii85 is documented with comments for the OCamldoc
 utility that generates documentation.
