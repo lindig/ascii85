@@ -8,11 +8,18 @@ encode files from the command line.  For the details of the format, see
 sections _ASCII Base-85 Strings_ and _ASCII85Encode Filter_ in the
 PostScript manual.    
      
-# Building
+# Install from OPAM
 
-Ascii85 is implemented in OCaml. It does not rely on libraries outside
-of the standard library and was developed with OCaml 4.02.1. The default
-for `PREFIX` is `$HOME`.
+The easiest way to install Ascii85 is to use OCaml's package manager:
+
+    opam install ascii85
+
+# Building from Source
+
+If you don't use opam, you can build Ascii85 from source code.  Ascii85 is
+implemented in OCaml. It does not rely on libraries outside of the standard
+library and was developed with OCaml 4.02.1. The default for `PREFIX` is
+`$HOME`.
 
     make
     make PREFIX=/usr/local install
@@ -57,7 +64,6 @@ BSD License. See [LICENSE.md](LICENSE.md).
 Christian Lindig <lindig@gmail.com>
 
 # Opam Description
-
 ascii85 - Adobe's Ascii85 encoding as a module and a command line tool
 
 The ascii85 module implements the Ascii85 encoding as defined by Adobe for
