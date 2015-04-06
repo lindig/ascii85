@@ -73,9 +73,13 @@ url:		FORCE
 		echo	"archive: \"$(ZIP)\"" > url
 		echo	"checksum: \"`curl -L $(ZIP)| md5 -q`\"" >> url
 
-release:	url opam descr
+release:	url opam descr sanity
 		test -d "$(OPAM)" || mkdir -p $(OPAM)
 		cp opam url descr $(OPAM)
+
+sanity:		descr opam
+		grep -q 'version: "$(VERSION)"' opam
+		sed -n 1p descr | grep -q $(NAME)
 
 # pseudo target
 
