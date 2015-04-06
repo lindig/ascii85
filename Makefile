@@ -57,7 +57,7 @@ ascii85enc.1:	ascii85enc.pod Makefile
 # OPAM - the targets below help to publish this code via opam.ocaml.org
 
 NAME =		ascii85
-VERSION =	0.1
+VERSION =	0.2
 TAG =		v$(VERSION)
 GITHUB =	https://github.com/lindig/$(NAME)
 ZIP =		$(GITHUB)/archive/$(TAG).zip
