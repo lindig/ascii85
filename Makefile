@@ -23,7 +23,7 @@ OCB_OPTS +=	-use-ocamlfind
 
 OCB =		ocamlbuild $(OCB_OPTS)
 
-all:		main.native lib doc
+all:		main.native lib doc sanity
 
 main.native:	FORCE
 		$(OCB) $@
