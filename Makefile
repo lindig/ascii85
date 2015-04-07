@@ -9,9 +9,10 @@
 PREFIX =	$(HOME)
 BINDIR =	$(PREFIX)/bin
 MANDIR =	$(PREFIX)/man/man1
-LIBDIR =	$(PREFIX)/lib/ago
+LIBDIR =	$(PREFIX)/lib/ascii85
 
 LIBFILES =
+LIBFILES +=     META
 LIBFILES +=	ascii85.cma ascii85.cmxa ascii85.cmxs
 LIBFILES +=	ascii85.mli ascii85.cmi
 
@@ -45,7 +46,6 @@ install:	ascii85enc.1 main.native lib
 		install main.native $(BINDIR)/ascii85enc
 		install ascii85enc.1 $(MANDIR)
 		for f in $(LIBFILES); do install _build/$$f $(LIBDIR); done
-		install META $(LIBDIR)
 
 remove:		FORCE
 		rm -f  $(BINDIR)/ascii85enc
