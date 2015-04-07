@@ -80,6 +80,7 @@ release:	url opam descr sanity
 
 sanity:		descr opam
 		grep -q 'version: "$(VERSION)"' opam
+		grep -q 'version = "$(VERSION)"' META
 		sed -n 1p descr | grep -q $(NAME)
 
 # pseudo target

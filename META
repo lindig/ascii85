@@ -1,4 +1,4 @@
-version = "0.1"
+version = "0.3"
 description             = "ascii-85 encoding module"
 archive(byte)           = "ascii85.cma"
 archive(byte, plugin)   = "ascii85.cma"
