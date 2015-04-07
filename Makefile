@@ -45,6 +45,7 @@ install:	ascii85enc.1 main.native lib
 		install main.native $(BINDIR)/ascii85enc
 		install ascii85enc.1 $(MANDIR)
 		for f in $(LIBFILES); do install _build/$$f $(LIBDIR); done
+		install META $(LIBDIR)
 
 remove:		FORCE
 		rm -f  $(BINDIR)/ascii85enc
@@ -57,7 +58,7 @@ ascii85enc.1:	ascii85enc.pod Makefile
 # OPAM - the targets below help to publish this code via opam.ocaml.org
 
 NAME =		ascii85
-VERSION =	0.2
+VERSION =	0.3
 TAG =		v$(VERSION)
 GITHUB =	https://github.com/lindig/$(NAME)
 ZIP =		$(GITHUB)/archive/$(TAG).zip

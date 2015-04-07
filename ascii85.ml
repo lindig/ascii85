@@ -6,7 +6,7 @@
 
     @author Christian Lindig <lindig\@gmail.com>
 
-    This code is in the public domain.
+    See LICSENSE.md for the license.
 *)
 
 exception Error of string
