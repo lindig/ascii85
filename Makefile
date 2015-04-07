@@ -13,7 +13,7 @@ LIBDIR =	$(PREFIX)/lib/ascii85
 
 LIBFILES =
 LIBFILES +=     META
-LIBFILES +=	ascii85.cma ascii85.cmxa ascii85.cmxs
+LIBFILES +=	ascii85.cma ascii85.cmxa ascii85.cmxs ascii85.a
 LIBFILES +=	ascii85.mli ascii85.cmi
 
 P2M_OPTS =	-s 1 -r "Alpha" -c "opam.ocaml.org"
