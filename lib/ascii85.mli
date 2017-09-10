@@ -2,7 +2,7 @@
     Adobe's "PostScript LANGUAGE REFERENCE third edition". For the details
     of the format, see sections "ASCII Base-85 Strings" and "ASCII85Encode
     Filter".    
-    
+
     @author Christian Lindig 
 
     Copyright (c) 2015, Christian Lindig <lindig\@gmail.com>
