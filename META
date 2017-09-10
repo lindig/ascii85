@@ -1,7 +1,0 @@
-version = "0.3"
-description             = "ascii-85 encoding module"
-archive(byte)           = "ascii85.cma"
-archive(byte, plugin)   = "ascii85.cma"
-archive(native)         = "ascii85.cmxa"
-archive(native, plugin) = "ascii85.cmxs"
-exists_if               = "ascii85.cma"

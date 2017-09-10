@@ -1,9 +1,6 @@
 
 ascii85.docdir
 _build
-*.1
-*.native
-*.byte
-url
-descr
+.merlin
+*.install
 

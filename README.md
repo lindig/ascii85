@@ -12,29 +12,32 @@ PostScript manual.
 
 The easiest way to install Ascii85 is to use OCaml's package manager:
 
-    opam install ascii85
+```sh
+opam install ascii85
+```
 
 # Building from Source
 
-If you don't use opam, you can build Ascii85 from source code.  Ascii85 is
-implemented in OCaml. It does not rely on libraries outside of the standard
-library and was developed with OCaml 4.02.1. The default for `PREFIX` is
-`$HOME`.
-
-    make
-    make PREFIX=/usr/local install
+```sh
+jbuilder build
+jbuilder install
+```
 
 # Command line tool
 
 The command line tool `ascii85enc` is installed into `$PREFIX/bin`. It
 encodes a named file or stdin:
 
-    ascii85enc file.txt
+```sh
+ascii85enc file.txt
+```
 
 Using the option `-ps` the output is prefixed with PostScript code to
 decode the stream and execute it:
 
-    ascii85enc -ps file.ps
+```
+ascii85enc -ps file.ps
+```
 
 This creates an Ascii85 encoded PostScript file that contains instructions
 to decode itself.
