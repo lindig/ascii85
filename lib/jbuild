@@ -1,5 +1,0 @@
-(jbuild_version 1)
-
-(library
- ((name ascii85)
-  (public_name ascii85)))

@@ -2,14 +2,14 @@
 # Makfile for ascii85 encoder binary and library
 #
 
-JB 				= jbuilder
+DUNE 				= dune
 P2M_OPTS 	=	-s 1 -r "Alpha" -c "opam.ocaml.org"
 
-all: ascii85enc.1	
-		$(JB) build
+all: ascii85enc.1
+		$(DUNE) build
 
 clean:
-		$(JB) clean
+		$(DUNE) clean
 
 ascii85enc.1:	ascii85enc.pod Makefile
 		pod2man $(P2M_OPTS) $< > $@
