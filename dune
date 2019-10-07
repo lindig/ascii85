@@ -1,0 +1,8 @@
+(executable
+ (name main)
+ (public_name ascii85enc)
+ (libraries ascii85))
+
+(install
+ (section doc)
+ (files ascii85enc.pod ascii85enc.1))

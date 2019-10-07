@@ -19,8 +19,8 @@ opam install ascii85
 # Building from Source
 
 ```sh
-jbuilder build
-jbuilder install
+dune build
+dune install
 ```
 
 # Command line tool
